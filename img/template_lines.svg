@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200"
+   height="200"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="template_lines.svg"
+   inkscape:export-filename="line7.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <path
+     id="rect10"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line7"
+     inkscape:transform-center-x="-70.705846"
+     inkscape:transform-center-y="70.715944"
+     d="M 119.5293 111.0625 A 22.5 22.5 0 0 1 111.03906 119.54297 C 126.67811 135.1825 142.31794 150.82148 157.95703 166.46094 A 22.5 22.5 0 0 1 166.4375 157.9707 C 150.80132 142.33488 135.16532 126.69857 119.5293 111.0625 z " />
+  <path
+     id="rect9"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line6"
+     inkscape:transform-center-x="0.0071399336"
+     inkscape:transform-center-y="100.00032"
+     d="M 93.986328 121.6582 L 93.986328 155.8418 A 22.5 22.5 0 0 1 100 155 A 22.5 22.5 0 0 1 105.98633 155.81836 L 105.98633 121.66406 A 22.5 22.5 0 0 1 100 122.5 A 22.5 22.5 0 0 1 93.986328 121.6582 z " />
+  <path
+     id="rect11"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line5"
+     inkscape:transform-center-x="70.715955"
+     inkscape:transform-center-y="70.705858"
+     d="M 80.457031 111.03906 C 64.829426 126.6666 49.201593 142.29412 33.574219 157.92188 A 22.5 22.5 0 0 1 42.064453 166.4043 C 57.68939 150.77936 73.314464 135.15428 88.939453 119.5293 A 22.5 22.5 0 0 1 80.457031 111.03906 z " />
+  <path
+     id="rect13"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line4"
+     inkscape:transform-center-x="-100.00031"
+     inkscape:transform-center-y="0.0071406787"
+     d="M 121.67969 94.007812 A 22.5 22.5 0 0 1 122.5 100 A 22.5 22.5 0 0 1 121.66016 106.00781 L 155.83984 106.00781 A 22.5 22.5 0 0 1 155 100 A 22.5 22.5 0 0 1 155.83594 94.007812 L 121.67969 94.007812 z " />
+  <path
+     id="rect12"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line3"
+     inkscape:transform-center-x="100.00032"
+     inkscape:transform-center-y="-0.0071415479"
+     d="M 44.177734 93.994141 A 22.5 22.5 0 0 1 45 100 A 22.5 22.5 0 0 1 44.164062 105.99414 L 78.335938 105.99414 A 22.5 22.5 0 0 1 77.5 100 A 22.5 22.5 0 0 1 78.339844 93.994141 L 44.177734 93.994141 z " />
+  <path
+     id="rect7"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line2"
+     inkscape:transform-center-x="-70.715954"
+     inkscape:transform-center-y="-70.705852"
+     d="M 157.96484 33.552734 C 142.33903 49.178172 126.71349 64.804019 111.08789 80.429688 A 22.5 22.5 0 0 1 119.57227 88.916016 C 135.19855 73.28973 150.8249 57.663384 166.45117 42.037109 A 22.5 22.5 0 0 1 157.96484 33.552734 z " />
+  <path
+     id="rect6"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line1"
+     inkscape:transform-center-x="-0.007142293"
+     inkscape:transform-center-y="-100.00032"
+     d="M 94 44.162109 L 94 78.337891 A 22.5 22.5 0 0 1 100 77.5 A 22.5 22.5 0 0 1 106 78.322266 L 106 44.162109 A 22.5 22.5 0 0 1 100 45 A 22.5 22.5 0 0 1 94 44.162109 z " />
+  <path
+     id="rect8"
+     style="display:inline;fill:#000000;stroke-width:7.00002"
+     inkscape:label="line0"
+     inkscape:transform-center-x="70.705853"
+     inkscape:transform-center-y="-70.715954"
+     d="M 42.037109 33.548828 A 22.5 22.5 0 0 1 33.552734 42.035156 L 80.464844 88.947266 A 22.5 22.5 0 0 1 88.951172 80.462891 C 73.313176 64.824891 57.675077 49.186795 42.037109 33.548828 z " />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="114.37452"
+     inkscape:cy="92.100659"
+     inkscape:window-width="1858"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+</svg>
