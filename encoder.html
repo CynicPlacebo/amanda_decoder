@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Amanda Encoder</title>
+  <meta name="description" content="Tool to help you Encode secret messages for Amanda the Adventurer using a custom font">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="localmess_css/global.css">
+  <link rel="stylesheet" href="localmess_css/index.css">
+
+  <style type="text/css">
+    @font-face {
+      font-family:"Amanda_Secrets Sans";
+      src:url('font/Amanda_Secrets_v01.otf') format("opentype"),
+          url('font/Amanda_Secrets_v01.ttf') format('truetype');
+    }
+
+    .invisible { display:none; } /*overriding the "hidden" nature of global.css's .invisible class*/
+
+    #content textarea {
+      /*
+      background-color:transparent;
+      color:white;
+      */
+      margin:8px 0px 2px 15px;
+      padding:4px 7px;
+      height:94px;
+      width:93%;
+    }
+
+    #controls {
+      display:block;
+      background-color:transparent;
+      text-align:right;
+    }
+    #controls a {
+      margin:1px 1px;
+      padding:1px 8px;
+    }
+    #controls a:hover {
+      color:var(--clrBorder);
+      cursor:pointer;
+      text-decoration:underline;
+    }
+    #controls a+a {
+      border-left:dotted 1px var(--clrBorder);
+      padding-left:12px;
+    }
+
+    #special_text {
+      font-family:"Amanda_Secrets Sans";
+      font-size:2rem;
+    }
+    
+  </style>
+  <script type="text/javascript">
+    var t1 = null; //will hold #clear_text
+    var t2 = null; //will hold #special_text
+
+    function renderAsFont() {
+        if (null == t1) {
+            t1 = document.getElementById('clear_text');
+            t2 = document.getElementById('special_text');
+        }
+        t2.value = t1.value;
+    }
+
+    function toggleVisibility(divID, controller) {
+      // Hide/Unhide the Section
+      document.getElementById(divID).classList.toggle('invisible');
+      // Deal with Controller Display Text (Show vs Hide)
+      let prefix = 'Hide';
+      let s = controller.innerText;
+      if (s.match(/^Hide/))
+        prefix = 'Show';
+      controller.innerText = prefix + s.substr(4);
+    }
+
+  </script>
+</head>
+
+<body onload="renderAsFont()">
+  <div id="content">
+    <span id="controls">
+      <a id="controlWarning" onclick="toggleVisibility('warning', this)">Hide Warning</a>
+	</span>
+
+    <div id="warning" class="section">
+      <h2>WARNING:</h2>
+	  <p>
+	      This is version 0.1 of the Amanda_Secrets font.<br/>
+	      No glyphs have been shown in the Amanda universe for the following characters:<br/>
+	      B, C, J, K, Q, X, &amp; all symbols and punctuation marks.<br/>
+	      So, I <b>invented</b> several symbols in the style of Amanda the Adventurer.<br/>
+	      I expect the basic letters will be revealed in Amanda the Adventurer 2, at which point I will update the font to version 0.1 with those additional characters.<br/>
+	      The final version will be named "Amanda_Secrets.ttf" and "Amanda_Secrets.otf". If there is a version number appended, you are using an incomplete version.
+	  </p>
+    </div>
+
+    <div id="typing" class="section">
+      <h2>Type your message to Preview it in the Amanda_Secrets.ttf font:</h2>
+      <textarea id="clear_text" onkeyup="renderAsFont()">Pause turn on oven now
+Who is Wooly
+Disappointing puzzles
+He tried to find me
+BCJKQX</textarea><br/>
+      <textarea id="special_text" readonly="readonly" style="height:184px;"></textarea>
+    </div>
+
+    <div id="license" class="section">
+      <h2>Font Download &amp; License:</h2>
+      <p>
+          You can download the <a href="font/Amanda_Secrets_v01.ttf">TrueType Font</a> or the <a href="font/Amanda_Secrets_v01.otf">OpenType Font</a>.
+          This font is offered with the <a href="https://www.tldrlegal.com/license/open-font-license-ofl-explained" target="_blank">SIL Open Font License v1.1 (OFL-1.1)</a>.<br/>
+          Basically, just don't try to sell my font and we're good ;)<br/>
+          You can in personal or commercial projects, you just can't trick people into paying you for the font when it's offered freely.
+      </p>
+    </div>
+  </div>
+
+  <hr/>
+  <p>
+      Created by
+      <a href="https://www.youtube.com/@CynicPlacebo" target="_blank">Cynic Placebo</a>.
+      If you like this font or tool, I'd appreciate you subscribing to my
+      <a href="https://www.youtube.com/@CynicPlacebo" target="_blank">YouTube Channel</a>
+  </p>
+</body>
+</html>

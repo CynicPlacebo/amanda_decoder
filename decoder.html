@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Amanda Decoder</title>
+  <meta name="description" content="Tool to help you Decode secret messages for Amanda the Adventurer and Design your own Glyphs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="localmess_css/global.css">
+  <link rel="stylesheet" href="localmess_css/index.css">
+
+  <style type="text/css">
+    button {
+	  cursor:pointer;
+	  font-size:1rem;
+	  overflow:hidden;
+	}
+
+    .float_right { float:right; }
+
+    .glyph {
+      background-color:#ddd;
+      fill:#000;
+	  height:50px;
+	  width:50px;
+	}
+
+    .glyphWrap {
+	  display:inline-block;
+	  padding:2px 3px;
+	}
+    .glyphWrap span {
+	  display:block;
+	  text-align:center;
+	}
+
+    .glyph.custom {
+      background-color:#96c2ff;
+      fill:#009;
+	}
+
+    .huge { font-size:2rem; }
+    .huger {
+	  position:relative;
+	  font-size:4rem;
+	}
+    .huger span {
+	  display:block;
+	  position:absolute;
+	  left:6px;
+	  top:-6px;
+	}
+	button.huge, button.huger {
+      line-height:0%;
+	  height:50px;
+	  width:65px;
+	}
+
+    .invisible { display:none; }
+
+    #design button {
+	  border-radius:9px;
+	  margin:6px 0px;
+	}
+
+    #encodedMessage { text-align:center; }
+    #encodedMessage .glyph {
+	  display:inline-block;
+	  height:40px;
+	  width:40px;
+	  margin:2px 3px;
+	}
+	#encodedMessage .glyph.space {
+	  opacity:0;
+	  width:20px;
+	}
+
+    #glyphDesigner {
+	  position:relative;
+	  background-image:url('img/template.svg');
+	  height:200px;
+	  width:200px;
+	}
+	#glyphDesigner img {
+	  position:absolute;
+	  top:0px;
+	  left:0px;
+	  opacity:0;
+	}
+	#glyphDesigner img.active {
+	  opacity:1;
+	}
+	#glyphDesigner img.templateButton:hover {
+	  cursor:pointer;
+	  filter: invert(8%) sepia(98%) saturate(6671%) hue-rotate(248deg) brightness(110%) contrast(145%); /*turn it #00F (blue)*/
+	  opacity:1;
+	}
+	#glyphDesigner img.templateButton.active:hover {
+	  filter: invert(10%) sepia(100%) saturate(7494%) hue-rotate(358deg) brightness(102%) contrast(110%); /*turn it #F00 (red)*/
+	}
+
+    #keyboard button {
+	  border-radius:9px;
+	  margin:6px 1px;
+	}
+    #keyboard button:hover {
+	  background-color:navy;
+	  border:solid 2px cyan;
+	  color:cyan; /*TODO: are these the colors I want?*/
+	  margin:4px 0px;
+	}
+    #keyboard td { padding:0px 18px; }
+    #keyboard .glyph {
+	  display:inline-block;
+	  margin:2px 3px;
+	}
+	#keyboard .glyph:hover {
+	  cursor:pointer;
+	  background-color:navy;
+	  border:solid 2px cyan;
+	  fill:cyan; /*TODO: are these the colors I want?*/
+	  margin:0px 1px;
+	}
+
+    #legend span { font-size:2rem; }
+    #legend .glyph {
+	  height:100px;
+	  width:100px;
+	}
+
+    #translation {
+	  color:#FFF; /*TODO: just inherit color???*/
+	  font-weight:bold;
+	  font-size:1.8rem;
+	  text-align:center;
+	}
+    #translation span.custom {
+	  color:blue; /*TODO: set to better value*/
+	}
+  </style>
+  <script src="amanda_cipher.js"></script>
+</head>
+
+<body onload="amanda_cipher_init()">
+  <div id="content">
+    <div id="controls" class="float_right">
+      <a id="controlDesign" onclick="toggleVisibility('design', this)">Hide Glyph Designer</a>
+      <a id="controlLegend" onclick="toggleVisibility('legend', this)">Hide Legend</a>
+	</div>
+
+    <div id="legend" class="section">
+      <h2>Legend of Known Glyphs:</h2>
+	  <div class="glyphWrap"><div class="glyph" data-character="A" data-dots="4" data-lines=""></div><span>A</span></div>
+	  <!--
+	  <div class="glyphWrap"><div class="glyph" data-character="B" data-dots="" data-lines=""></div><span>B</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="C" data-dots="" data-lines=""></div><span>C</span></div>
+	  -->
+	  <div class="glyphWrap"><div class="glyph" data-character="D" data-dots="" data-lines="0347"></div><span>D</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="E" data-dots="024" data-lines=""></div><span>E</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="F" data-dots="468" data-lines=""></div><span>F</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="G" data-dots="" data-lines="16"></div><span>G</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="H" data-dots="048" data-lines=""></div><span>H</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="I" data-dots="" data-lines="1346"></div><span>I</span></div>
+	  <!--
+	  <div class="glyphWrap"><div class="glyph" data-character="J" data-dots="" data-lines=""></div><span>J</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="K" data-dots="" data-lines=""></div><span>K</span></div>
+	  -->
+	  <div class="glyphWrap"><div class="glyph" data-character="L" data-dots="" data-lines="34"></div><span>L</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="M" data-dots="06" data-lines=""></div><span>M</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="N" data-dots="28" data-lines=""></div><span>N</span></div>
+	  <br/>
+	  <div class="glyphWrap"><div class="glyph" data-character="O" data-dots="" data-lines="0257"></div><span>O</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="P" data-dots="" data-lines="1256"></div><span>P</span></div>
+	  <!--
+	  <div class="glyphWrap"><div class="glyph" data-character="Q" data-dots="" data-lines=""></div><span>Q</span></div>
+	  -->
+	  <div class="glyphWrap"><div class="glyph" data-character="R" data-dots="" data-lines="2345"></div><span>R</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="S" data-dots="26" data-lines=""></div><span>S</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="T" data-dots="" data-lines="07"></div><span>T</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="U" data-dots="6" data-lines=""></div><span>U</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="V" data-dots="0" data-lines=""></div><span>V</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="W" data-dots="8" data-lines=""></div><span>W</span></div>
+	  <!--
+	  <div class="glyphWrap"><div class="glyph" data-character="X" data-dots="" data-lines=""></div><span>X</span></div>
+	  -->
+	  <div class="glyphWrap"><div class="glyph" data-character="Y" data-dots="08" data-lines=""></div><span>Y</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="Z" data-dots="68" data-lines=""></div><span>Z</span></div>
+	  <!--
+	  <div class="glyphWrap"><div class="glyph" data-character="0" data-dots="" data-lines=""></div><span>0</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="1" data-dots="" data-lines=""></div><span>1</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="2" data-dots="" data-lines=""></div><span>2</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="3" data-dots="" data-lines=""></div><span>3</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="4" data-dots="" data-lines=""></div><span>4</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="5" data-dots="" data-lines=""></div><span>5</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="6" data-dots="" data-lines=""></div><span>6</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="7" data-dots="" data-lines=""></div><span>7</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="8" data-dots="" data-lines=""></div><span>8</span></div>
+	  <div class="glyphWrap"><div class="glyph" data-character="9" data-dots="" data-lines=""></div><span>9</span></div>
+	  -->
+	  <!-- TODO: punctuation? I don't think so, but do it on the full font -->
+    </div>
+
+    <div id="design" class="section">
+      <h2>Create Your Own Glyph:</h2>
+	  <table><tbody>
+	    <td>
+	      <div id="glyphDesigner">
+	        <img class="backgroundOnly" id="backLine0" data-lines="0" src="img/line0.svg" />
+	        <img class="backgroundOnly" id="backLine1" data-lines="1" src="img/line1.svg" />
+	        <img class="backgroundOnly" id="backLine2" data-lines="2" src="img/line2.svg" />
+	        <img class="backgroundOnly" id="backLine3" data-lines="3" src="img/line3.svg" />
+	        <img class="backgroundOnly" id="backLine4" data-lines="4" src="img/line4.svg" />
+	        <img class="backgroundOnly" id="backLine5" data-lines="5" src="img/line5.svg" />
+	        <img class="backgroundOnly" id="backLine6" data-lines="6" src="img/line6.svg" />
+	        <img class="backgroundOnly" id="backLine7" data-lines="7" src="img/line7.svg" />
+	        <img class="templateButton" data-dots="0" onclick="design(this)" src="img/template_dot.svg" style="" />
+	        <img class="templateButton" data-dots="1" onclick="design(this)" src="img/template_dot.svg" style="left:77.5px" />
+	        <img class="templateButton" data-dots="2" onclick="design(this)" src="img/template_dot.svg" style="left:155px" />
+	        <img class="templateButton" data-dots="3" onclick="design(this)" src="img/template_dot.svg" style="top:77.5px" />
+	        <img class="templateButton" data-dots="4" onclick="design(this)" src="img/template_dot.svg" style="left:77.5px;top:77.5px" />
+	        <img class="templateButton" data-dots="5" onclick="design(this)" src="img/template_dot.svg" style="left:155px;top:77.5px" />
+	        <img class="templateButton" data-dots="6" onclick="design(this)" src="img/template_dot.svg" style="top:155px" />
+	        <img class="templateButton" data-dots="7" onclick="design(this)" src="img/template_dot.svg" style="left:77.5px;top:155px" />
+	        <img class="templateButton" data-dots="8" onclick="design(this)" src="img/template_dot.svg" style="left:155px;top:155px" />
+			<!-- left/top coordinates for lines from template_lines.svg -->
+	        <img class="templateButton" data-lines="0" onclick="design(this)" src="img/template_line0.svg" style="left:33.553px;top:33.549px" />
+	        <img class="templateButton" data-lines="1" onclick="design(this)" src="img/template_line1.svg" style="left:94px;top:44.162px" />
+	        <img class="templateButton" data-lines="2" onclick="design(this)" src="img/template_line2.svg" style="left:111.088px;top:33.553px" />
+	        <img class="templateButton" data-lines="3" onclick="design(this)" src="img/template_line3.svg" style="left:44.164px;top:93.994px" />
+	        <img class="templateButton" data-lines="4" onclick="design(this)" src="img/template_line4.svg" style="left:121.660px;top:94.008px" />
+	        <img class="templateButton" data-lines="5" onclick="design(this)" src="img/template_line5.svg" style="left:33.574px;top:111.039px" />
+	        <img class="templateButton" data-lines="6" onclick="design(this)" src="img/template_line6.svg" style="left:93.986px;top:121.658px" />
+	        <img class="templateButton" data-lines="7" onclick="design(this)" src="img/template_line7.svg" style="left:111.039px;top:111.062px" />
+	      </div>
+		</td><td>
+		  <button onclick="designGlyphAdd()" title="Add Designed Glyph" class="huge">&#x271A;</button><br/>
+		  <button onclick="designGlyphReset()" title="Reset Glyph Template" class="huge">&#x2752;</button><br/> <!-- was &#x2751; -->
+		  <button onclick="designGlyphDelete()" title="Delete Last Glyphs" class="huge">&#x232B;</button><br/>
+		  <button onclick="designGlyphDelete(true)" title="Delete All Glyphs" class="huge">&#x2702;</button><br/>
+		</td><td id="customGlyphs">
+		</td>
+	  </tbody></table>
+    </div>
+
+    <div class="section">
+      <h2>Type with Glyph Keyboard (Sorted Dot/Line/Both from simple to complex):</h2>
+	  <div id="keyboard">
+	    <table><tbody>
+		  <td id="keyboard0"></td><!-- Holds "Dot" type glyphs -->
+		  <td id="keyboard1"></td><!-- Holds "Line" type glyphs -->
+		  <td id="keyboard2"></td><!-- Holds "Combination" type glyphs -->
+		  <td id="keyboard3"><!-- Holds "Backspace" and "Insert Space" -->
+		    <button onclick="glyphKeyboardBackspace()" class="huge" title="Backspace">&#x232B;</button><br/>
+		    <button onclick="glyphKeyboardSpace()" class="huger" title="Add Space"><span>&blank;</span></button>
+		  </td>
+		</tbody></table>
+	  </div>
+	  <br><hr/><br/>
+	  <div id="translation"></div>
+	  <div id="encodedMessage"></div>
+    </div>
+  </div>
+</body>
+</html>
